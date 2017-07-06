@@ -76,7 +76,7 @@ public class ListActivity extends AppCompatActivity {
 
     private void setData() {
         list = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             List<IFeelGood> temp = new ArrayList<>();
             temp.add(new IFeelGood("1"));
             temp.add(new IFeelGood("2"));
@@ -144,13 +144,14 @@ public class ListActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), hour+"/"+minute+"/"+title, Toast.LENGTH_SHORT).show();
                         Lab.alarmList.add(alarm);
 
-                        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                        AlarmManager manager3 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
-                        Intent intent = new Intent(ListActivity.this, ShowAlarm.class);
+                        Intent intent3 = new Intent(getApplicationContext(), ShowAlarm.class);
+//                        intent.putExtra("msg", "일어나세요");
 
-                        PendingIntent pendingIntent = PendingIntent.getActivity(ListActivity.this, 0, intent, 0);
+                        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent3, 0);
 
-                        manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+5000, 1000, pendingIntent);
+                        manager3.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+5000 ,pendingIntent);
 
                         alarmListAdapter.notifyDataSetChanged();
                     }

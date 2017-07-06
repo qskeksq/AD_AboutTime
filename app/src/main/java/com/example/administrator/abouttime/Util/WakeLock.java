@@ -15,7 +15,7 @@ public class WakeLock {
     private static KeyguardManager.KeyguardLock mKeyguardLock;
     private static boolean isScreenLock;
 
-    static void acquireCpuWakeLock(Context context) {
+   public  static void acquireCpuWakeLock(Context context) {
         Log.e("PushWakeLock", "Acquiring cpu wake lock");
         Log.e("PushWakeLock", "wake sCpuWakeLock = " + sCpuWakeLock);
 
@@ -31,7 +31,7 @@ public class WakeLock {
         sCpuWakeLock.acquire();
     }
 
-    static void releaseCpuLock() {
+   public static void releaseCpuLock() {
         Log.e("PushWakeLock", "Releasing cpu wake lock");
         Log.e("PushWakeLock", "relase sCpuWakeLock = " + sCpuWakeLock);
 

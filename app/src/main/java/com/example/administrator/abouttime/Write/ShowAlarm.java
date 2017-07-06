@@ -1,17 +1,20 @@
 package com.example.administrator.abouttime.Write;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.administrator.abouttime.R;
+import com.example.administrator.abouttime.Util.WakeLock;
 
 public class ShowAlarm extends AppCompatActivity {
 
-    Button cancel, write;
+    TextView cancel, write;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +26,32 @@ public class ShowAlarm extends AppCompatActivity {
                 | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
                 | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(5000);
+        Vibrator vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        vi.vibrate(5000);
+
+
+
+        cancel = (TextView) findViewById(R.id.showCancel);
+        write = (TextView) findViewById(R.id.showWrite);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                WakeLock.releaseCpuLock();
+                finish();
+            }
+        });
+
+        write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                WakeLock.releaseCpuLock();
+                Intent intent = new Intent(ShowAlarm.this, WriteActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
     }
 }

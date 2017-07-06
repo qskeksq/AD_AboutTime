@@ -4,8 +4,7 @@
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
-
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +24,8 @@
         </activity>
         <activity android:name=".Detail.DetailActivity" />
         <activity android:name=".AlarmList.AlarmListActivity" />
-        <activity android:name=".Write.ShowAlarm"></activity>
+        <activity android:name=".Write.ShowAlarm" />
+        <activity android:name=".Write.WriteActivity"></activity>
     </application>
 
 </manifest>

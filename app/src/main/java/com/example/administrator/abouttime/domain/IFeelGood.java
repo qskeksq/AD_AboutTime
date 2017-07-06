@@ -6,10 +6,20 @@ package com.example.administrator.abouttime.domain;
 
 public class IFeelGood {
 
-    String name;
+    public String name;
+    public String title;
+    public String content;
+
+
+    public IFeelGood() {
+
+    }
 
     public IFeelGood(String name) {
 
         this.name = name;
     }
+
+
+
 }
