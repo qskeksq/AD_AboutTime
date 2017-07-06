@@ -6,4 +6,5 @@
 
     <color name="background">#c2000000</color>
     <color name="subBackground">#77000000</color>
+    <color name="lightBackground">#f4f7f8</color>
 </resources>
