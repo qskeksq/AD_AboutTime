@@ -14,7 +14,7 @@ import com.example.administrator.abouttime.Util.WakeLock;
 
 public class ShowAlarm extends AppCompatActivity {
 
-    TextView cancel, write;
+    TextView cancel, write, time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,13 @@ public class ShowAlarm extends AppCompatActivity {
                 | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 
         Vibrator vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        vi.vibrate(5000);
+        vi.vibrate(3000);
 
-
+//        time = (TextView) findViewById(R.id.showTime);
+//
+//        String hour = getIntent().getStringExtra("hour");
+//        String minute = getIntent().getStringExtra("minute");
+//        time.setText(hour+":"+minute);
 
         cancel = (TextView) findViewById(R.id.showCancel);
         write = (TextView) findViewById(R.id.showWrite);
@@ -38,6 +42,8 @@ public class ShowAlarm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 WakeLock.releaseCpuLock();
+                Intent intent = new Intent(ShowAlarm.this, WriteActivity.class);
+                startActivity(intent);
                 finish();
             }
         });

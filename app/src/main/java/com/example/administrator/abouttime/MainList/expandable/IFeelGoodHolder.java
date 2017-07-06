@@ -29,9 +29,6 @@ public class IFeelGoodHolder extends ChildViewHolder {
             }
         });
 
-
-
-
     }
 
     private void goDetail(Activity activity) {

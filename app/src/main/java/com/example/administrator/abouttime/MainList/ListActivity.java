@@ -147,7 +147,8 @@ public class ListActivity extends AppCompatActivity {
                         AlarmManager manager3 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
                         Intent intent3 = new Intent(getApplicationContext(), ShowAlarm.class);
-//                        intent.putExtra("msg", "일어나세요");
+                        intent3.putExtra("hour", hour);
+                        intent3.putExtra("minute", minute);
 
                         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent3, 0);
 
