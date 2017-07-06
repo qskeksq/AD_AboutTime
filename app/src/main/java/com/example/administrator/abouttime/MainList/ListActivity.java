@@ -4,15 +4,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
-import com.example.administrator.abouttime.M.HowIsYourDay;
-import com.example.administrator.abouttime.M.IFeelGood;
 import com.example.administrator.abouttime.MainList.expandable.ListAdapter;
 import com.example.administrator.abouttime.R;
+import com.example.administrator.abouttime.domain.HowIsYourDay;
+import com.example.administrator.abouttime.domain.IFeelGood;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ListActivity extends AppCompatActivity {
 
@@ -47,8 +47,17 @@ public class ListActivity extends AppCompatActivity {
             temp.add(new IFeelGood("1"));
             temp.add(new IFeelGood("2"));
             temp.add(new IFeelGood("3"));
-            list.add(new HowIsYourDay(i+1+"", temp));
-            Log.e("몇번", i+"");
+            list.add(new HowIsYourDay(UUID.randomUUID()+"", temp));
         }
+
     }
+
+
+    public void alarmDialog(){
+
+    }
+
+
+
+
 }

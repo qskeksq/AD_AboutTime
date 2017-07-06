@@ -16,7 +16,8 @@ public class IFeelGoodHolder extends ChildViewHolder {
     public static final String PARENT_POSITION = "PARENT";
     public static final String CHILD_POSITION = "CHILD";
 
-    int parentPosition, childPosition;
+    int childPosition;
+    String parentPosition;
 
     public IFeelGoodHolder(View itemView, final Activity activity) {
         super(itemView);
@@ -28,6 +29,9 @@ public class IFeelGoodHolder extends ChildViewHolder {
             }
         });
 
+
+
+
     }
 
     private void goDetail(Activity activity) {
@@ -37,7 +41,7 @@ public class IFeelGoodHolder extends ChildViewHolder {
         activity.startActivity(intent);
     }
 
-    public void setParentPosition(int parentPosition) {
+    public void setParentPosition(String parentPosition) {
         this.parentPosition = parentPosition;
     }
 

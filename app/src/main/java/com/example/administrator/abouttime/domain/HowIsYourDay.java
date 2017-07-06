@@ -1,4 +1,4 @@
-package com.example.administrator.abouttime.M;
+package com.example.administrator.abouttime.domain;
 
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 

@@ -1,7 +1,6 @@
 package com.example.administrator.abouttime.MainList.expandable;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,7 @@ import java.util.List;
 public class ListAdapter extends ExpandableRecyclerViewAdapter<HowIsYourDayHolder, IFeelGoodHolder> {
 
     Activity activity;
+    int parentPosition;
 
     public ListAdapter(List<? extends ExpandableGroup> groups, Activity activity) {
 
@@ -42,23 +42,13 @@ public class ListAdapter extends ExpandableRecyclerViewAdapter<HowIsYourDayHolde
     @Override
     public void onBindChildViewHolder(IFeelGoodHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
 
-        Log.e("childflatposition 이 뭐지", flatPosition+"");
-        Log.e("childgrouptitle", group.getTitle()+"");
-        Log.e("childcount", group.getItemCount()+"");
-        Log.e("childindex", childIndex+"");
-
-        holder.setParentPosition(flatPosition-1);    // 오류가 생길 수도 있다
+        holder.setParentPosition(group.getTitle());
         holder.setChildPosition(childIndex);
-
     }
 
     @Override
     public void onBindGroupViewHolder(HowIsYourDayHolder holder, int flatPosition, ExpandableGroup group) {
 
-        holder.setTitle(group.getTitle());
-        Log.e("flatposition 이 뭐지", flatPosition+"");
-        Log.e("grouptitle", group.getTitle()+"");
-        Log.e("count", group.getItemCount()+"");
 
     }
 }
