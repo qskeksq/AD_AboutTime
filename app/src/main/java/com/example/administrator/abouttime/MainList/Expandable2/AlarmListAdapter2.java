@@ -15,11 +15,11 @@ import java.util.List;
  * Created by Administrator on 2017-07-07.
  */
 
-public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.AlarmHolder> {
+public class AlarmListAdapter2 extends RecyclerView.Adapter<AlarmListAdapter2.AlarmHolder> {
 
     List<Alarm> data;
 
-    public AlarmListAdapter(List<Alarm> data) {
+    public AlarmListAdapter2(List<Alarm> data) {
 
         this.data = data;
     }

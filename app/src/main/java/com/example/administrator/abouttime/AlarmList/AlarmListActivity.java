@@ -28,7 +28,7 @@ public class AlarmListActivity extends AppCompatActivity {
 
 
         // 3.
-//        alarmListAdapter = new AlarmListAdapter();
+//        alarmListAdapter = new AlarmListAdapter2();
 
         // 4.
 //        recyclerView.setAdapter(alarmListAdapter);

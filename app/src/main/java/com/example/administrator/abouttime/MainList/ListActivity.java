@@ -18,11 +18,14 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.administrator.abouttime.AlarmList.AlarmListAdapter;
+import com.example.administrator.abouttime.MainList.Expandable2.AlarmListAdapter2;
 import com.example.administrator.abouttime.MainList.expandable.ListAdapter;
 import com.example.administrator.abouttime.R;
 import com.example.administrator.abouttime.Write.ShowAlarm;
@@ -37,10 +40,13 @@ import java.util.UUID;
 
 public class ListActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, recyclerView2;
     List<HowIsYourDay> list;
     ListAdapter adapter;
+    AlarmListAdapter2 alarmListAdapter2;
     Button alarm;
+
+    Switch aSwitch;
 
     AlertDialog.Builder dialog;
     @Override
@@ -48,18 +54,33 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        aSwitch = (Switch) findViewById(R.id.switch1);
+
         // 1.
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-
+        recyclerView2 = (RecyclerView) findViewById(R.id.recyclerViewHour);
         // 2.
         setData();
 
         // 3.
-        adapter = new ListAdapter(list, this);
-
-        // 4.
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(!isChecked){
+                    recyclerView.setVisibility(View.VISIBLE);
+                    recyclerView2.setVisibility(View.GONE);
+                    adapter = new ListAdapter(list, ListActivity.this);
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(ListActivity.this));
+                } else {
+                    recyclerView.setVisibility(View.GONE);
+                    recyclerView2.setVisibility(View.VISIBLE);
+                    alarmListAdapter2 = new AlarmListAdapter2(Lab.alarmList);
+                    recyclerView2.setAdapter(alarmListAdapter2);
+                    recyclerView2.setLayoutManager(new LinearLayoutManager(ListActivity.this));
+                }
+            }
+        });
 
 
         alarm = (Button) findViewById(R.id.clock);
